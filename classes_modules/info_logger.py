@@ -3,7 +3,7 @@
 
 import os
 import time
-
+print(__name__)
 class Logger():
     def __init__(self, filename):
         self.path = filename
@@ -13,6 +13,7 @@ class Logger():
             with open(filename, 'w') as F:
                 pass
                 ...
+                
     def LogRow(self, data):
         t = time.ctime(time.time())
         with open(self.path, 'a') as F:

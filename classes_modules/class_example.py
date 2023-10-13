@@ -3,6 +3,9 @@ import student_info
 import info_logger
 
 
+#internal variable __main__ == '__main__'
+#otherwise name of the module
+
 def get_user_info():
     
     name = input("Enter name: ")
