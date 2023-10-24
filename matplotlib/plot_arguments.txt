@@ -1,0 +1,6 @@
+parameter 
+ls (linestyle):
+mfc (markerfacecolor):
+mec (markeredgecolor):
+marker
+ms(markersize)
