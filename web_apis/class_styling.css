@@ -1,0 +1,24 @@
+p{
+    color:blueviolet;
+    font-size: 50px;
+    text-align: center;
+}
+div{
+    color: blue;
+    font-size: 100px;
+    text-align: end;
+    border: black 2px;
+}
+.centered{
+    text-align: center;
+}
+
+#left_text{
+    text-align: left;
+
+}
+
+div > ol{
+    font-size: 150px;
+    color: black;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Descendants</title>
+        <style>
+            ol > ul{ /*unordered lists that are descendants of ordered lists could also be ol ul*/ 
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <ol>
+            <li>list item one</li>
+            <li> list item two</li>
+            <ul>
+                <li>unordered sublist item one</li>
+                <li>unordered sublist item two</li>
+            </ul>
+            <li> Another item</li>
+        </ol>
+        <ul>
+            <li>unordered sublist item one</li>
+            <li>unordered sublist item two</li>
+        </ul>
+    </body>
+</html>
