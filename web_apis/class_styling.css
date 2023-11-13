@@ -7,7 +7,7 @@ div{
     color: blue;
     font-size: 100px;
     text-align: end;
-    border: black 2px;
+    border: 2px solid black;
 }
 .centered{
     text-align: center;
