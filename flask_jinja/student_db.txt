@@ -1,0 +1,8 @@
+Thu Nov 16 08:29:33 2023, Andrew Rukangu  graduate red 
+Thu Nov 16 08:30:29 2023, Andrew Rukangu  graduate red 
+Thu Nov 16 08:31:17 2023, Geoffrey  Meru undergraduate blue 
+Thu Nov 16 08:34:31 2023, Marie Curie graduate radiant 
+Thu Nov 16 10:12:34 2023, Albert  Einstein graduate green 
+Thu Nov 16 10:14:58 2023, Marie Curie graduate Yellow 
+Thu Nov 16 10:17:21 2023, Marie Curie graduate radiant 
+Thu Nov 16 10:51:41 2023, Christian Garcia graduate blue 
