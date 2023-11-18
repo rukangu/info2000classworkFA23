@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="color: #007BFF;">Please input the student data</h1> <br>
+<form action="{{url_for('HandleStudent')}}" method="post">
+    <div>
+        <input name="first_name" type="text" placeholder="First Name">
+        <input name="last_name" type="text" placeholder="Last Name">
+        <select name="level">
+            <option value="undergraduate">Undergrad</option>
+            <option value="graduate">Grad</option>
+        </select>
+    </div>
+    <div>
+        <input name="Favorite Color" list="colorlist" placeholder="Color">
+        <datalist id = "colorlist">
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="blue">blue</option>
+        </datalist>
+    </div>
+  <input type="submit">
+
+</form>
+{% endblock content %}

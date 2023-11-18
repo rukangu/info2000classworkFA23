@@ -6,3 +6,4 @@ Thu Nov 16 10:12:34 2023, Albert  Einstein graduate green
 Thu Nov 16 10:14:58 2023, Marie Curie graduate Yellow 
 Thu Nov 16 10:17:21 2023, Marie Curie graduate radiant 
 Thu Nov 16 10:51:41 2023, Christian Garcia graduate blue 
+Fri Nov 17 16:23:36 2023, Spongebob Squarepants graduate oceanblue 

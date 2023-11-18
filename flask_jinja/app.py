@@ -2,10 +2,29 @@ from flask import Flask, render_template, request, redirect, url_for
 from info2000_package import info_logger
 from info2000_package import student_details
 
+
+import pandas as pd
+import sqlite3
+
 DB_FILE = "student_db.txt"
+
+DatabaseFile = 'studentdb.db'
+initcommandfile = 'initdb.sql'
 
 app = Flask(__name__)
 
+# intialize our database
+
+with sqlite3.connect(DatabaseFile) as con:
+    # read the commands in inti.db
+    with open(initcommandfile,'r') as f:
+        commands = f.read()
+    # execute the sql commands
+
+    con.executescript(commands)
+    con.commit()
+
+ 
 @app.route('/')
 def home():
     return render_template('index.html', title = 'Home')
@@ -16,17 +35,21 @@ def view():
     if title == None:
         title = 'View Student'
     
-    with open (DB_FILE,'r') as f:
-        lines = f.readlines()
-        lines = [line.strip('\n') for line in lines] # strip the new line
-        students = []
-        for line in lines:
-            _,student_details = line.split(',')
-            student_details = student_details.strip(" ")
-            print(student_details)
-            first_name, last_name, level, color = student_details.split()
-            students.append({"first_name":first_name, "last_name":last_name, "level":level, "color":color})
-    
+    # with open (DB_FILE,'r') as f:
+    #     lines = f.readlines()
+    #     lines = [line.strip('\n') for line in lines] # strip the new line
+    #     students = []
+    #     for line in lines:
+    #         _,student_details = line.split(',')
+    #         student_details = student_details.strip(" ")
+    #         print(student_details)
+    #         first_name, last_name, level, color = student_details.split()
+    #         students.append({"first_name":first_name, "last_name":last_name, "level":level, "color":color})
+    with sqlite3.connect(DatabaseFile) as con:
+        command = 'SELECT * FROM student'
+        df = pd.read_sql(command, con)
+        students = df.to_records()
+
     context = {
         "title":title,
         "students":students
@@ -46,8 +69,15 @@ def HandleStudent():
     color = request.form.get('Favorite Color')
     level = request.form.get('level')
 
-    my_logger = info_logger.Logger(DB_FILE)
+    my_logger = info_logger.Logger(DB_FILE) # this is the txt file solution
     my_logger.LogRow(f"{first_name} {last_name} {level} {color}")
+
+    # let's write to our database
+
+    with sqlite3.connect(DatabaseFile) as con:
+        # insert the row
+        command = 'INSERT INTO student (first_name, last_name, school_level, color) VLAUES(?,?,?,?),(first_name,last_name,color,level)'
+        con.execute(command)
 
     return redirect(url_for('view',title = f'{first_name}_{last_name}')) # the title of the view page will be the name of the newly added student
 
