@@ -76,8 +76,9 @@ def HandleStudent():
 
     with sqlite3.connect(DatabaseFile) as con:
         # insert the row
-        command = 'INSERT INTO student (first_name, last_name, school_level, color) VLAUES(?,?,?,?),(first_name,last_name,color,level)'
-        con.execute(command)
+        command = 'INSERT INTO student (first_name, last_name, school_level, color) VALUES(?,?,?,?)'
+        params=(first_name,last_name,color,level)
+        con.execute(command,params)
 
     return redirect(url_for('view',title = f'{first_name}_{last_name}')) # the title of the view page will be the name of the newly added student
 
